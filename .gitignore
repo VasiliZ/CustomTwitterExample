@@ -1,0 +1,14 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/workspace.xml
+.idea/gradle.xml
+.idea/libraries
+.idea/caches
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+!/gradle/wrapper/gradle-wrapper.jar
+*.jar
+!gradle-wrapper.jar
