@@ -3,13 +3,14 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+        android:name=".VasiliZTwitterApp.MyTwitterApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".VasiliZTwitterApp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,7 +19,7 @@
         </activity>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="f17c556364074c8221d5a1698c8f741910376278"
+            android:value="@string/FABRIC_API_KEY"
             />
     </application>
 
