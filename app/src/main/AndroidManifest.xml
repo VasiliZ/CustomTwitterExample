@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.github.vasiliz"
           xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
+
         android:name=".VasiliZTwitterApp.MyTwitterApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,17 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".VasiliZTwitterApp.MainActivity">
+        <activity android:name=".VasiliZTwitterApp.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".VasiliZTwitterApp.main.ui.MainActivity"/>
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="@string/FABRIC_API_KEY"
-            />
+            android:value="f17c556364074c8221d5a1698c8f741910376278" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

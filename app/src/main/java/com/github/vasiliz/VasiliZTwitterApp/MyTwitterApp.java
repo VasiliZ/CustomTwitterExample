@@ -9,17 +9,15 @@ import com.twitter.sdk.android.core.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterConfig;
 
-import io.fabric.sdk.android.Fabric;
-
 public class MyTwitterApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        initFabric();
+        init();
     }
 
-    private void initFabric() {
+    private void init() {
         TwitterConfig authConfig = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))
                 .twitterAuthConfig(new TwitterAuthConfig(BuildConfig.TWITTER_KEY, BuildConfig.TWITTER_SECRET))
