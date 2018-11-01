@@ -13,8 +13,8 @@ import android.view.MenuItem;
 
 import com.github.vasiliz.R;
 import com.github.vasiliz.VasiliZTwitterApp.LoginActivity;
-import com.github.vasiliz.VasiliZTwitterApp.hashtags.HashTagsFragment;
-import com.github.vasiliz.VasiliZTwitterApp.images.ImagesFragmett;
+import com.github.vasiliz.VasiliZTwitterApp.hashtags.ui.HashTagsFragment;
+import com.github.vasiliz.VasiliZTwitterApp.images.ui.ImagesFragmett;
 import com.github.vasiliz.VasiliZTwitterApp.main.adapters.MainSectionsPagerAdapter;
 import com.twitter.sdk.android.core.TwitterCore;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         ButterKnife.bind(this);
@@ -41,23 +41,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpAdapter() {
-        Fragment[] fragments = new Fragment[]{new ImagesFragmett(), new HashTagsFragment()};
-        String header_images = getString(R.string.main_header_images);
-        String hashtags = getString(R.string.main_header_hashtags);
-        String[] titles = {header_images, hashtags};
-        MainSectionsPagerAdapter mainSectionsPagerAdapter = new MainSectionsPagerAdapter(getSupportFragmentManager(), titles, fragments);
+        final Fragment[] fragments = new Fragment[]{new ImagesFragmett(), new HashTagsFragment()};
+        final String header_images = getString(R.string.main_header_images);
+        final String hashtags = getString(R.string.main_header_hashtags);
+        final String[] titles = {header_images, hashtags};
+        final MainSectionsPagerAdapter mainSectionsPagerAdapter = new MainSectionsPagerAdapter(getSupportFragmentManager(), titles, fragments);
         mViewPager.setAdapter(mainSectionsPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         if (item.getItemId() == R.id.logout){
             logout();
         }
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void logout() {
         TwitterCore.getInstance().getSessionManager().clearActiveSession();
-        Intent intent = new Intent(this, LoginActivity.class);
+        final Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
         |Intent.FLAG_ACTIVITY_NEW_TASK
         |Intent.FLAG_ACTIVITY_CLEAR_TASK);

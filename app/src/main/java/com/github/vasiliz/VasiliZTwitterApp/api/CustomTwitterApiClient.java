@@ -6,11 +6,11 @@ import com.twitter.sdk.android.core.TwitterSession;
 
 public class CustomTwitterApiClient extends TwitterApiClient {
 
-    public CustomTwitterApiClient(Session pSession){
+    public CustomTwitterApiClient(Session pSession) {
         super((TwitterSession) pSession);
     }
 
-    public TimelineService getTimelineService(){
+    public TimelineService getTimelineService() {
         return getService(TimelineService.class);
     }
 }

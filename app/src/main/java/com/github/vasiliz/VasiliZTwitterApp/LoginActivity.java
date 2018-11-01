@@ -9,8 +9,10 @@ import android.widget.RelativeLayout;
 
 import com.github.vasiliz.R;
 import com.github.vasiliz.VasiliZTwitterApp.main.ui.MainActivity;
+import com.twitter.sdk.android.core.AuthToken;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.Session;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
@@ -25,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     TwitterLoginButton mTwitterLoginButton;
     @BindView(R.id.loginContainer)
     RelativeLayout mLayout;
+    private Session mSession;
+    private AuthToken authToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
 
         TwitterSession twitterSession = TwitterCore.getInstance().getSessionManager().getActiveSession();
         if (twitterSession != null) {
+            mSession = TwitterCore.getInstance().getSessionManager().getActiveSession();
+            if (mSession != null) {
+                authToken = mSession.getAuthToken();
+
+            }
             navigateToMailScreen();
         } else {
 
@@ -64,8 +73,8 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToMailScreen() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                |Intent.FLAG_ACTIVITY_NEW_TASK
-                |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                | Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 }
